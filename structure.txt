@@ -1,0 +1,39 @@
+assets/default/empty.png
+core
+    debug: Debug
+    game: Game
+    gtime: Time
+    input: Input
+    settings: InitSettings
+    window: Window
+elements
+    camera: Camera
+    graphics: Graphics
+    particles: Particles, CircleParticles
+    skybox: Skybox
+    sprite: SpriteManager
+    timers: TimerManager, Timer, CooldownTimer
+    trail: Trail
+extra
+    circle: Circle
+    color: ColorRGB, ColorHEX
+    lines: Line, Segment
+    math: Math
+    noise: BaseNoise, SimplexNoise, TilableNoise
+    pathfinding: PathFinder
+    pyjson: Json, JsonLexer, JsonParser, JsonValue, JsonObject, JsonPair, JsonKey, JsonArray, JsonType
+    random: Random
+    ray: Ray, Raycast
+    saving: Saving
+    table: Table, From
+ui
+    constants
+    pygameUI: UIManager
+    ui: UI
+    core
+        element, textrenderer, shaperenderer, imagerenderer
+    elements
+        button, checkbox, container, dropdown, entryline, image, label, progressbar, scrollbar, selectionlist, slider, window
+noinit: _NoInit
+application: Application
+pgboost
