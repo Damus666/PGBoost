@@ -1,7 +1,7 @@
 import pygame
 from .shape_renderer import ShapeRenderer
 #from .. import global_input
-from core.input import Input
+from ...core.input import Input
 from .. import constants
 
 class CoordinateLikeObject:

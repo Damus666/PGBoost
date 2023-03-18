@@ -1,6 +1,6 @@
 import pygame
 from pygame.math import Vector2
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 _pygame_key_codes = [
     pygame.K_BACKSPACE,

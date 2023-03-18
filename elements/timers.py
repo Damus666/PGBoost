@@ -1,5 +1,5 @@
 import pygame
-from noinit import _NoInit
+from ..noinit import _NoInit
 """
 Contains the timers classes.
 """
@@ -9,17 +9,17 @@ class TimerManager(_NoInit):
     timers = dict()
     
     @classmethod
-    def Add(cls,name,timer):
-        cls.timers[name] = timer
+    def Add(cls,name,timer,activate_on_end):
+        cls.timers[name] =(timer,activate_on_end)
         
     @classmethod
     def Get(cls,name):
-        return cls.timers[name]
+        return cls.timers[name][0]
     
     @classmethod
     def _update(cls):
         for t in cls.timers.values():
-            t.Update()
+            t[0].Update(t[1])
 
 # TIMERS
 class CooldownTimer():

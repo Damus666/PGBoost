@@ -1,7 +1,7 @@
 import pygame,typing
 from .sprite import SpriteManager
-from core.window import Window
-from noinit import _NoInit
+from ..core.window import Window
+from ..noinit import _NoInit
 
 class SkyboxType(_NoInit):
     """Available types are 'Color' and 'Image'"""

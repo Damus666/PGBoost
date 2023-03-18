@@ -1,4 +1,4 @@
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 """
 A module to easly manage JSON objects using python objects

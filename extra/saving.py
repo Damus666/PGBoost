@@ -1,5 +1,5 @@
 from typing import Type, Any
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 class Saving(_NoInit):
 	"""Contains object-JSON conversion methods"""

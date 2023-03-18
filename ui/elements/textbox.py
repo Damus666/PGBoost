@@ -3,8 +3,8 @@ from .. import constants
 from ..elements.container import UIScrollableContainer
 from ..core.text_renderer import TextBoxTextRenderer
 from ..elements.scrollbar import UIVerticalScrollbar,UIHorizontalScrollbar
-from core.input import Input
-from core.gtime import Time
+from ...core.input import Input
+from ...core.gtime import Time
 
 class UITextBox(UIScrollableContainer):
     def __init__(self,relative_rect,ui_manager,container=None,visible=True,id=constants.DEFAULT_SETTINGS["default_element_id"]):

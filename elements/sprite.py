@@ -1,5 +1,6 @@
 import pygame
-from noinit import _NoInit
+from ..noinit import _NoInit
+from warnings import warn
 
 from pygame.sprite import Sprite
 from pygame.sprite import Group as SpriteGroup
@@ -13,13 +14,19 @@ class SpriteManager(_NoInit):
     
     @classmethod
     def _init(cls):
-        s = cls.Add("none","assets/default/empty.png")
-        cls.sprites["empty"] = s
+        try:
+            s = cls.Add("none","assets/default/empty.png")
+            cls.sprites["empty"] = s
+        except:
+            warn("Failed to load 'empty.png' from 'assets/default/empty.png'. Considering adding that file to your project to have the 'none/empty' sprite available",ResourceWarning)
     
     @classmethod
-    def Add(cls,name:str,path:str,scalefactor:tuple[float,float]=None,sizes:tuple[int,int]=None)->pygame.Surface:
+    def Add(cls,name:str,path:str,scalefactor:tuple[float,float]=None,sizes:tuple[int,int]=None,convert_alpha=False)->pygame.Surface:
         """Add a new surface to the dictionary and return it"""
-        surface = pygame.image.load(path).convert_alpha()
+        if convert_alpha:
+            surface = pygame.image.load(path).convert_alpha()
+        else:
+            surface = pygame.image.load(path).convert()
         if scalefactor != None:
             w,h = surface.get_width(),surface.get_height()
             surface = pygame.transform.scale(surface,(w*scalefactor[0],h*scalefactor[1]))

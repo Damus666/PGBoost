@@ -1,6 +1,6 @@
 import sys
 #sys.path.append("...")
-from extra.math import Math
+from ..extra.math import Math
 import pygame
 import math
 from pygame.math import Vector2, Vector3

@@ -1,6 +1,6 @@
 import os
 from typing import Callable,Any
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 class Debug(_NoInit):
     _clear_console_command = "cls"

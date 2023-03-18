@@ -1,5 +1,5 @@
 import pygame,time
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 onediv1000 = 1/1000
 

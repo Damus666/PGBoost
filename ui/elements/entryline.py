@@ -2,8 +2,8 @@ import pygame
 from .. import constants
 from ..core.text_renderer import TextRenderer
 from ..core.element import UIElement
-from core.input import Input
-from core.gtime import Time
+from ...core.input import Input
+from ...core.gtime import Time
 
 class UIEntryLine(UIElement):
     """

@@ -2,7 +2,7 @@ import pygame
 from .. import constants
 from ..elements.container import UIScrollableContainer, UIContainer
 from ..elements.button import UIButton
-from core.input import Input
+from ...core.input import Input
 
 class UIWindow(UIContainer):
     def __init__(self,relative_rect,ui_manager,title="Window Title",kill_on_close=True,can_drag=True,scrollable=False,container=None,visible=True,id=constants.DEFAULT_SETTINGS["default_element_id"],inner_ids={

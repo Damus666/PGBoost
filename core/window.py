@@ -1,5 +1,5 @@
 import pygame
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 class WindowFlag(_NoInit):
     """Pygame window flags grouped in a class. Pygame constants are fine too"""

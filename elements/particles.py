@@ -1,8 +1,9 @@
 from random import choice, uniform
 import pygame
-from elements.graphics import Graphics
-from elements.sprite import SpriteManager
+from ..elements.graphics import Graphics
+from ..elements.sprite import SpriteManager
 from typing import List, Tuple, Union
+from ..elements.camera import Camera
 #import sys
 #sys.path.append("..")
 
@@ -122,7 +123,7 @@ class CircleParticles():
             self.particles.append({"color": choice(self.colors), "pos": list(self.origin_point.xy), "speed": [uniform(self.speed_random_range[0][0], self.speed_random_range[0][1]), uniform(
                 self.speed_random_range[1][0], self.speed_random_range[1][1])], "time": self._cooldown, "scale": self._start_scale})
 
-    def Draw(self, surface: pygame.Surface) -> None:
+    def Draw(self, surface: pygame.Surface,project=False) -> None:
         """
         Blit the particles and update them.
         """
@@ -150,8 +151,10 @@ class CircleParticles():
                 if round(preview) > 0:
                     particle["scale"] = preview
 
-            pygame.draw.circle(surface, particle["color"], (int(
-                particle["pos"][0]), int(particle["pos"][1])), round(particle["scale"]))
+            pos = (int(particle["pos"][0]), int(particle["pos"][1]))
+            if project:
+                pos = Camera.ProjectToTuple(pos)
+            pygame.draw.circle(surface, particle["color"], pos, round(particle["scale"]))
 
         for particle in toRemove:
             self.particles.remove(particle)
@@ -272,7 +275,7 @@ class Particles():
             self.particles.append({"pos": list(self.origin_point.xy), "speed": [uniform(self.speed_random_range[0][0], self.speed_random_range[0][1]), uniform(
                 self.speed_random_range[1][0], self.speed_random_range[1][1])], "time": self._cooldown, "scale": self._start_scale, "image": image, "original": image})
 
-    def Draw(self, surface: pygame.Surface) -> None:
+    def Draw(self, surface: pygame.Surface,project=False) -> None:
         """
         Blit the particles and update them.
         """
@@ -301,8 +304,10 @@ class Particles():
                     particle["scale"] = preview
                 particle["image"] = Graphics.ScaleBy(
                     particle["original"], (particle["scale"],particle["scale"]))
-
-            surface.blit(particle["image"], particle["pos"])
+            pos = particle["pos"]
+            if project:
+                pos = Camera.ProjectToTuple(pos)
+            surface.blit(particle["image"], pos)
 
         for particle in toRemove:
             self.particles.remove(particle)

@@ -1,20 +1,20 @@
 # builtins
 import pygame,sys
 # core
-from core.gtime import Time
-from core.input import Input,KeyCode
-from core.window import Window
-from core.settings import InitSettings
-from core.game import Game
+from .core.gtime import Time
+from .core.input import Input,KeyCode
+from .core.window import Window, WindowFlag
+from .core.settings import InitSettings
+from .core.game import Game
 # elements
-from elements.skybox import SkyboxType,Skybox
-from elements.camera import Camera
-from elements.sprite import SpriteManager
-from elements.timers import TimerManager,Timer,CooldownTimer
+from .elements.skybox import SkyboxType,Skybox
+from .elements.camera import Camera
+from .elements.sprite import SpriteManager
+from .elements.timers import TimerManager,Timer,CooldownTimer
 # ui
-from ui.ui import UI
+from .ui.ui import UI
 # noinit
-from noinit import _NoInit
+from .noinit import _NoInit
 
 class Application(_NoInit):
     """

@@ -1,6 +1,6 @@
 import random
-from noinit import _NoInit
-from extra.math import Math
+from ..noinit import _NoInit
+from ..extra.math import Math
 from typing import Iterable,Any
 
 class Random(_NoInit):
@@ -23,7 +23,7 @@ class Random(_NoInit):
         cweight = 0
         i = 0
         for w in weights:
-            if Math.InsideEqualRange(chosen,cweight,cweight+w):
+            if Math.InsideRange(chosen,cweight,cweight+w):
                 return sequence[i]
             cweight += w
             i += 1

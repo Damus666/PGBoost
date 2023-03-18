@@ -1,6 +1,6 @@
-from ui.pygameUI import UIManager
-from core.window import Window
-from noinit import _NoInit
+from ..ui.pygameUI import UIManager
+from ..core.window import Window
+from ..noinit import _NoInit
 
 class UI(_NoInit):
     """Wrapper for the library 'pygameUI'. The libray is a seprate project with a different naming convention"""

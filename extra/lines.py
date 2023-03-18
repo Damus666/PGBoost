@@ -1,6 +1,6 @@
 import sys
 #sys.path.append("...")
-from extra.math import Math
+from ..extra.math import Math
 from typing import Tuple, Union
 import pygame
 import math

@@ -1,5 +1,5 @@
 import random
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 class ColorRGB(_NoInit):
     """Contains color attributes as RGB and some methods related to them. 'ColorRGB.colors' contains the same attributes inside a dictionary"""

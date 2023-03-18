@@ -1,6 +1,6 @@
 import pygame
-from elements.skybox import SkyboxType
-from noinit import _NoInit
+from ..elements.skybox import SkyboxType
+from ..noinit import _NoInit
 
 class InitSettings(_NoInit):
     """The application will use this settings to initialize the core components"""

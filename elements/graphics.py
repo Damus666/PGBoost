@@ -1,6 +1,6 @@
 import pygame
 from typing import Any
-from noinit import _NoInit
+from ..noinit import _NoInit
 
 class Graphics(_NoInit):
     """Groups pygame 'draw', 'transform' and 'image' module in a class with some additional methods"""

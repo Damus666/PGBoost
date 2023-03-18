@@ -2,7 +2,7 @@ import pygame
 from .. import constants
 from ..core.element import UIElement
 from ..elements.button import UIButton
-from core.input import Input
+from ...core.input import Input
 
 class UISlider(UIElement):
     def __init__(self,relative_rect,ui_manager,min_value,max_value,current_value,direction="horizontal",container=None,visible=True,id=constants.DEFAULT_SETTINGS["default_element_id"],inner_ids={

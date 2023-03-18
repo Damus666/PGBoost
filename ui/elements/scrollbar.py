@@ -1,6 +1,6 @@
 import pygame
 from .. import constants
-from core.input import Input
+from ...core.input import Input
 from ..elements.button import UIButton
 from ..elements.container import UIContainer
 

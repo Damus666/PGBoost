@@ -3,7 +3,7 @@ from .. import constants
 from ..elements.container import UIScrollableContainer
 from ..elements.scrollbar import UIVerticalScrollbar
 from ..elements.button import UIButton
-from core.gtime import Time
+from ...core.gtime import Time
 
 class UISelectionList(UIScrollableContainer):
     def __init__(self,relative_rect,ui_manager,starting_items_list=[],enable_multi_selection=False,container=None,visible=True,id=constants.DEFAULT_SETTINGS["default_element_id"],inner_ids={

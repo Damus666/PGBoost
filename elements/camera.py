@@ -1,8 +1,8 @@
 import pygame
-from core.window import Window
-from noinit import _NoInit
-from core.input import Input
-from elements.graphics import Graphics
+from ..core.window import Window
+from ..noinit import _NoInit
+from ..core.input import Input
+from ..elements.graphics import Graphics
 from typing import SupportsIndex,Iterable
 
 class Camera(_NoInit):
@@ -36,30 +36,30 @@ class Camera(_NoInit):
     @classmethod
     def ScreenToWorld(self,point:SupportsIndex)->pygame.Vector2:
         """Project a point on the screen to a point in the world."""
-        return pygame.Vector2(((point[0]/self.zoom)+self.left()),((point[1]/self.zoom)+self.top()))
+        return pygame.Vector2(((point[0]/self.zoom)+self.Left()),((point[1]/self.zoom)+self.Top()))
     
     @classmethod
     def WorldToScreen(self,point:SupportsIndex)->pygame.Vector2:
         """Inverse of 'ScreenToWorld'."""
-        return pygame.Vector2(((point[0]/self.zoom)-self.left()),((point[1]/self.zoom)-self.top()))
+        return pygame.Vector2(((point[0]/self.zoom)-self.Left()),((point[1]/self.zoom)-self.Top()))
 
     @classmethod
-    def left(self)->float:
+    def Left(self)->float:
         """Returns the left camera border"""
         return self.position.x - (Window.sizes.x/self.zoom)*0.5
     
     @classmethod
-    def right(self)->float:
+    def Right(self)->float:
         """Returns the right camera border"""
         return self.position.x + (Window.sizes.x/self.zoom)*0.5
     
     @classmethod
-    def top(self)->float:
+    def Top(self)->float:
         """Returns the top camera border"""
         return self.position.y - (Window.sizes.y/self.zoom)*0.5
     
     @classmethod
-    def bottom(self)->float:
+    def Bottom(self)->float:
         """Returns the bottom camera border"""
         return self.position.x + (Window.sizes.y/self.zoom)*0.5
     
@@ -83,9 +83,14 @@ class Camera(_NoInit):
         """Projects a world position to the camera space, to render objects in the right place"""
         dx = position[0]-cls.position.x
         dy = position[1]-cls.position.y
-        x = ((position[0]-cls._left())+((dx*cls.zoom)-dx))
-        y = ((position[1]-cls._top())+((dy*cls.zoom)-dy))
-        return pygame.Vector2(x,y)
+        return pygame.Vector2(((position[0]-cls._left())+((dx*cls.zoom)-dx)),((position[1]-cls._top())+((dy*cls.zoom)-dy)))
+    
+    @classmethod
+    def ProjectToTuple(cls,position:SupportsIndex)->pygame.Vector2:
+        """Projects a world position to the camera space, to render objects in the right place"""
+        dx = position[0]-cls.position.x
+        dy = position[1]-cls.position.y
+        return (((position[0]-cls._left())+((dx*cls.zoom)-dx)),((position[1]-cls._top())+((dy*cls.zoom)-dy)))
     
     @classmethod
     def ZoomSurface(cls,surface):
